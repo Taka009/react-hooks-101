@@ -1,10 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 
 const App = props => {
   // なぜ一つ目は[]で、二つ目は{}で分割代入するのか理由が不明。
   const [ state, setState ] = useState(props)
   const {name, price } = state
+
+  useEffect(() => {
+    console.log('This is like componentDidMount or componentDidUpdate')
+  })
+
+  useEffect(() => {
+    console.log('This is like componentDidMount')
+  }, [])
+
+  useEffect(() => {
+    console.log('This callback if for name only')
+  }, [name])
   
   return (
     <>
