@@ -38,7 +38,7 @@ const EventForm = () => {
       dispatch({ type: DELETE_ALL_EVENTS})
       dispatch({
         type: ADD_OPERATION_LOG,
-        description: 'イベントを削除しました',
+        description: `全てのイベントを削除しました`,
         operatedAt: timeCurrentIso8601()
       })
     }
@@ -48,8 +48,7 @@ const EventForm = () => {
     e.preventDefault()
     const result = window.confirm("本当に全ての操作ログを削除しますか")
     if (result) {
-      dispatch({ type: DELETE_ALL_EVENTS})
-      dispatch({type: DELETE_ALL_OPERATION_LOGS})
+      dispatch({ type: DELETE_ALL_OPERATION_LOGS})
     }
   }
 
